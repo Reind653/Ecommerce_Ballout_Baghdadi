@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  customer:
+    build: 
+      context: .
+      dockerfile: Dockerfile.customer
+    ports:
+      - "5000:5000"
+
+  inventory:
+    build:
+      context: .
+      dockerfile: Dockerfile.inventory
+    ports:
+      - "5001:5000"
+  
+  sales:
+    build:
+      context: .
+      dockerfile: Dockerfile.sales
+    ports:
+      - "5002:5000"
+  
+  reviews:
+    build:
+      context: .
+      dockerfile: Dockerfile.reviews
+    ports:
+      - "5003:5000"
+
+networks:
+  default:
+    driver: bridge
